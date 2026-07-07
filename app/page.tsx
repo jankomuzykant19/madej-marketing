@@ -1,22 +1,25 @@
-async function getHelloMessage(): Promise<string> {
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+"use client";
 
-  const response = await fetch(`${baseUrl}/api/hello`, {
-    cache: "no-store",
-  });
+import { useEffect, useState } from "react";
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch hello message");
-  }
+export default function HomePage() {
+  const [message, setMessage] = useState("Ładowanie...");
+  const [error, setError] = useState<string | null>(null);
 
-  const data = (await response.json()) as { message: string };
-  return data.message;
-}
+  useEffect(() => {
+    fetch("/api/hello")
+      .then(async (response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch hello message");
+        }
 
-export default async function HomePage() {
-  const message = await getHelloMessage();
+        const data = (await response.json()) as { message: string };
+        setMessage(data.message);
+      })
+      .catch(() => {
+        setError("Nie udało się pobrać wiadomości z API.");
+      });
+  }, []);
 
   return (
     <main
@@ -30,7 +33,7 @@ export default async function HomePage() {
         gap: "0.5rem",
       }}
     >
-      <h1>{message}</h1>
+      <h1>{error ?? message}</h1>
       <p>Frontend + backend w jednej aplikacji Next.js.</p>
     </main>
   );
