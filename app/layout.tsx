@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
+
+const display = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600"],
+  variable: "--font-display",
+});
+
+const body = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400"],
+  variable: "--font-body",
+});
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio hello world",
+  title: "Madej Marketing",
+  description: "Madej Marketing",
 };
 
 export default function RootLayout({
@@ -12,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body>{children}</body>
+      <body className={`${display.variable} ${body.variable}`}>{children}</body>
     </html>
   );
 }
