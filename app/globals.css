@@ -1,9 +1,37 @@
-*,
-*::before,
-*::after {
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ------------------------------------------------------------------ */
+/*  Madej Marketing — design tokens                                    */
+/*  Brand: graphite base, warm gold accent, cream ink                  */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --color-ink: #0a0a0f;
+  --color-ink-soft: #101017;
+  --color-panel: #14141c;
+  --color-panel-raised: #1b1b25;
+  --color-line: rgba(245, 240, 232, 0.08);
+  --color-line-strong: rgba(245, 240, 232, 0.16);
+
+  --color-cream: #f5f0e8;
+  --color-cream-dim: rgba(245, 240, 232, 0.62);
+  --color-cream-faint: rgba(245, 240, 232, 0.38);
+
+  --color-gold: #c9a227;
+  --color-gold-bright: #e6c454;
+  --color-gold-deep: #8a6d18;
+
+  --font-display: var(--font-display-src), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-src), system-ui, -apple-system, sans-serif;
+
+  --radius: 1rem;
+  --shadow-glow: 0 0 0 1px rgba(201, 162, 39, 0.18),
+    0 20px 60px -20px rgba(201, 162, 39, 0.35);
+}
+
+* {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html,
@@ -12,79 +40,79 @@ body {
 }
 
 body {
-  background: #0a0a0f;
-  color: #f5f0e8;
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 162, 39, 0.12), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(120, 80, 40, 0.08), transparent),
-    #0a0a0f;
+::selection {
+  background: rgba(201, 162, 39, 0.28);
+  color: var(--color-cream);
 }
 
-.hero__title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
-  animation: fadeUp 1s ease-out both;
+/* thin, on-brand scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 39, 0.25);
+  border-radius: 999px;
+  border: 3px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 162, 39, 0.45);
 }
 
-.hero__brand {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(3rem, 10vw, 5.5rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  background: linear-gradient(135deg, #f5f0e8 0%, #d4af37 45%, #f5f0e8 100%);
-  background-size: 200% auto;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* utility: gold text gradient with slow shimmer */
+@utility text-gold-shimmer {
+  background: linear-gradient(
+    115deg,
+    var(--color-cream) 0%,
+    var(--color-gold-bright) 42%,
+    var(--color-cream) 82%
+  );
+  background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 6s ease-in-out infinite;
+  animation: mm-shimmer 7s ease-in-out infinite;
 }
 
-.hero__tagline {
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
-  font-weight: 300;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 232, 0.55);
-  padding-left: 0.45em;
-}
-
-.hero__line {
-  width: 3rem;
-  height: 1px;
-  margin-top: 1.75rem;
-  background: linear-gradient(90deg, transparent, #c9a227, transparent);
-  animation: fadeUp 1s 0.3s ease-out both;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes shimmer {
+@keyframes mm-shimmer {
   0%,
   100% {
     background-position: 0% center;
   }
   50% {
     background-position: 100% center;
+  }
+}
+
+@keyframes mm-aurora {
+  0% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-6%, -3%, 0) scale(1);
   }
 }
