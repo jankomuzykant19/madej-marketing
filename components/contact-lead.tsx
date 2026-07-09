@@ -11,9 +11,6 @@ import {
   Globe,
   Rocket,
   Clapperboard,
-  Zap,
-  CalendarClock,
-  Eye,
   Loader2,
   PartyPopper,
 } from "lucide-react";
@@ -46,17 +43,9 @@ const BUDGETS = [
   { id: "talk", label: "Chcę ustalić na rozmowie", desc: "doradzę Ci najlepszy zakres" },
 ];
 
-const TIMELINES = [
-  { id: "asap", label: "Jak najszybciej", desc: "start w tym tygodniu", icon: Zap },
-  { id: "month", label: "W ciągu miesiąca", desc: "planujemy spokojnie", icon: CalendarClock },
-  { id: "quarter", label: "1–3 miesiące", desc: "większy projekt", icon: CalendarClock },
-  { id: "browse", label: "Tylko się rozglądam", desc: "chcę poznać ofertę", icon: Eye },
-];
-
 type LeadState = {
   services: string[];
   budget: string | null;
-  timeline: string | null;
   name: string;
   company: string;
   email: string;
@@ -67,7 +56,6 @@ type LeadState = {
 const EMPTY: LeadState = {
   services: [],
   budget: null,
-  timeline: null,
   name: "",
   company: "",
   email: "",
@@ -75,7 +63,7 @@ const EMPTY: LeadState = {
   message: "",
 };
 
-const STEPS = ["Zakres", "Budżet", "Termin", "Dane"] as const;
+const STEPS = ["Zakres", "Budżet", "Dane"] as const;
 
 /* Adaptive recommendation — the "smart" bit */
 function recommendation(state: LeadState): string {
@@ -179,7 +167,6 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
   const canProceed = [
     state.services.length > 0,
     !!state.budget,
-    true, // termin jest opcjonalny — można pominąć
     state.name.trim().length > 1 && emailValid,
   ];
 
@@ -195,7 +182,6 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
       .map((id) => SERVICES.find((s) => s.id === id)?.label)
       .filter(Boolean) as string[];
     const budget = BUDGETS.find((b) => b.id === state.budget)?.label;
-    const timeline = TIMELINES.find((t) => t.id === state.timeline)?.label;
 
     try {
       const response = await fetch("/api/lead", {
@@ -208,7 +194,6 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
           phone: state.phone.trim() || undefined,
           services,
           budget,
-          timeline,
           message: state.message.trim() || undefined,
         }),
       });
@@ -331,26 +316,6 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
 
                 {step === 2 && (
                   <StepShell
-                    title="Kiedy chcesz wystartować?"
-                    subtitle="Opcjonalnie — możesz pominąć, dopasujemy tempo na rozmowie."
-                  >
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                      {TIMELINES.map((t) => (
-                        <Tile
-                          key={t.id}
-                          active={state.timeline === t.id}
-                          onClick={() => set("timeline", t.id)}
-                          icon={t.icon}
-                          label={t.label}
-                          desc={t.desc}
-                        />
-                      ))}
-                    </div>
-                  </StepShell>
-                )}
-
-                {step === 3 && (
-                  <StepShell
                     title="Zostaw namiary"
                     subtitle="Odezwę się i umówimy darmową rozmowę — bez zobowiązań."
                   >
@@ -453,7 +418,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 disabled={!canProceed[step]}
                 className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_30px_-10px_color-mix(in_srgb,var(--color-gold)_70%,transparent)] transition-all hover:shadow-[0_14px_40px_-8px_color-mix(in_srgb,var(--color-gold)_85%,transparent)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
               >
-                {step === 2 && !state.timeline ? "Pomiń" : "Dalej"}
+                Dalej
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
             ) : (

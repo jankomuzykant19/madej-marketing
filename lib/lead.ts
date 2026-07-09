@@ -5,7 +5,6 @@ export type LeadPayload = {
   phone?: string;
   services: string[];
   budget?: string;
-  timeline?: string;
   message?: string;
 };
 
@@ -36,7 +35,6 @@ export function parseLeadPayload(data: unknown): LeadPayload | null {
     company: optionalString(raw.company),
     phone: optionalString(raw.phone),
     budget: optionalString(raw.budget),
-    timeline: optionalString(raw.timeline),
     message: optionalString(raw.message),
   };
 }

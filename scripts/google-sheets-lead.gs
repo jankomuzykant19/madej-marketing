@@ -22,7 +22,6 @@ const SHEET_HEADERS = [
   "Telefon",
   "Zakres",
   "Budżet",
-  "Termin",
   "Wiadomość",
 ];
 
@@ -57,7 +56,6 @@ function doPost(e) {
       String(payload.phone || ""),
       Array.isArray(payload.services) ? payload.services.join(", ") : "",
       String(payload.budget || ""),
-      String(payload.timeline || ""),
       String(payload.message || ""),
     ]);
 
@@ -99,7 +97,6 @@ function formatEmailBody_(payload) {
     "Telefon: " + (payload.phone || "—"),
     "Zakres: " + (services || "—"),
     "Budżet: " + (payload.budget || "—"),
-    "Termin: " + (payload.timeline || "—"),
     "",
     "Wiadomość:",
     payload.message || "—",
