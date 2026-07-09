@@ -161,7 +161,8 @@ function Tile({
 export function ContactLead({ onClose }: { onClose: () => void }) {
   const [step, setStep] = React.useState(0);
   const [state, setState] = React.useState<LeadState>(EMPTY);
-  const [status, setStatus] = React.useState<"idle" | "sending" | "done">("idle");
+  const [status, setStatus] = React.useState<"idle" | "sending" | "done" | "error">("idle");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const set = <K extends keyof LeadState>(k: K, v: LeadState[K]) =>
     setState((s) => ({ ...s, [k]: v }));
@@ -185,11 +186,46 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
   const next = () => setStep((s) => Math.min(s + 1, STEPS.length - 1));
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // NOTE: intentionally does NOT send anything yet — demo only.
     setStatus("sending");
-    window.setTimeout(() => setStatus("done"), 1100);
+    setErrorMessage("");
+
+    const services = state.services
+      .map((id) => SERVICES.find((s) => s.id === id)?.label)
+      .filter(Boolean) as string[];
+    const budget = BUDGETS.find((b) => b.id === state.budget)?.label;
+    const timeline = TIMELINES.find((t) => t.id === state.timeline)?.label;
+
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: state.name.trim(),
+          company: state.company.trim() || undefined,
+          email: state.email.trim(),
+          phone: state.phone.trim() || undefined,
+          services,
+          budget,
+          timeline,
+          message: state.message.trim() || undefined,
+        }),
+      });
+
+      const result = (await response.json()) as { ok?: boolean; error?: string };
+
+      if (!response.ok || !result.ok) {
+        setErrorMessage(result.error || "Nie udało się wysłać zgłoszenia.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("done");
+    } catch {
+      setErrorMessage("Nie udało się wysłać zgłoszenia. Sprawdź połączenie i spróbuj ponownie.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -391,7 +427,11 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
           </div>
 
           {/* footer nav */}
-          <div className="flex items-center justify-between gap-3 border-t border-line px-6 py-4 sm:px-8">
+          <div className="border-t border-line px-6 py-4 sm:px-8">
+            {status === "error" && errorMessage && (
+              <p className="mb-3 text-center text-sm text-red-300/90">{errorMessage}</p>
+            )}
+            <div className="flex items-center justify-between gap-3">
             <button
               type="button"
               onClick={back}
@@ -434,6 +474,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 )}
               </button>
             )}
+            </div>
           </div>
         </>
       )}
@@ -497,8 +538,7 @@ function SuccessScreen({
             (<span className="text-gold">{services.join(", ")}</span>)
           </>
         )}
-        . W wersji demo formularz jeszcze nie wysyła zgłoszenia — podłączymy to w
-        kolejnym kroku.
+        . Odezwę się wkrótce, żeby umówić darmową rozmowę — bez zobowiązań.
       </p>
 
       <button
