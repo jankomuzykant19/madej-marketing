@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -38,6 +39,13 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${display.variable} ${body.variable} ${mono.variable}`}
       >
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="6d52ef01-c354-42e0-b840-c17a57773018"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
         {children}
       </body>
     </html>
