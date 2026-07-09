@@ -26,6 +26,13 @@ const SHEET_HEADERS = [
   "Wiadomość",
 ];
 
+function doGet() {
+  return jsonResponse({
+    ok: true,
+    message: "Madej Marketing lead webhook is reachable.",
+  });
+}
+
 function doPost(e) {
   try {
     const payload = JSON.parse(e.postData.contents);
@@ -107,4 +114,21 @@ function jsonResponse(body, statusCode) {
   // Apps Script Web App cannot set HTTP status codes directly.
   void statusCode;
   return output;
+}
+
+/**
+ * Run once from the Apps Script editor (Run > authorizeOnce) to grant permissions,
+ * then create a NEW web app deployment (Deploy > New deployment).
+ */
+function authorizeOnce() {
+  doPost({
+    postData: {
+      contents: JSON.stringify({
+        token: SECRET_TOKEN,
+        name: "Test autoryzacji",
+        email: "test@example.com",
+        services: ["Test"],
+      }),
+    },
+  });
 }

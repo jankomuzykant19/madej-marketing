@@ -23,6 +23,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  
   title: "Madej Marketing - Marketing, który sprzedaje",
   description:
     "Madej Marketing — kampanie, strony i strategie, które zamieniają uwagę w klientów. Skontaktuj się i opowiedz nam o swoim projekcie.",
