@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  Playfair_Display,
-  JetBrains_Mono,
-  Space_Grotesk,
-} from "next/font/google";
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const display = Playfair_Display({
@@ -19,18 +14,11 @@ const body = Inter({
   variable: "--font-body-src",
 });
 
-// Tech version — monospace
+// Kreacje / LP page — monospace
 const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-tech",
-});
-
-// Youth version — bold geometric sans
-const grotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "700"],
-  variable: "--font-youth",
 });
 
 export const metadata: Metadata = {
@@ -48,7 +36,7 @@ export default function RootLayout({
     <html lang="pl" className="dark">
       <body
         suppressHydrationWarning
-        className={`${display.variable} ${body.variable} ${mono.variable} ${grotesk.variable}`}
+        className={`${display.variable} ${body.variable} ${mono.variable}`}
       >
         {children}
       </body>

@@ -30,9 +30,9 @@ interface Beam {
   pulseSpeed: number;
 }
 
-// Madej Marketing — warm gold beams (hue ~36–52)
-const GOLD_HUE_BASE = 38;
-const GOLD_HUE_RANGE = 16;
+// Madej Marketing — emerald→lime beams (hue ~82° lime → ~160° emerald)
+const GOLD_HUE_BASE = 82;
+const GOLD_HUE_RANGE = 78;
 
 function createBeam(width: number, height: number): Beam {
   const angle = -35 + Math.random() * 10;
@@ -190,6 +190,7 @@ export default function BeamsBackground({
       />
 
       <motion.div
+        initial={false}
         animate={{ opacity: [0.05, 0.14, 0.05] }}
         className="absolute inset-0 bg-ink/10"
         style={{ backdropFilter: "blur(50px)" }}

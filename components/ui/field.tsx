@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const baseField =
   "w-full rounded-xl border border-line bg-panel/60 px-4 py-3 text-[0.95rem] text-cream " +
   "placeholder:text-cream-faint outline-none transition-all duration-200 " +
-  "focus:border-gold/60 focus:bg-panel focus:shadow-[0_0_0_3px_rgba(201,162,39,0.12)]";
+  "focus:border-gold/60 focus:bg-panel focus:shadow-[0_0_0_3px_color-mix(in_srgb,var(--color-gold)_16%,transparent)]";
 
 interface FieldWrapProps {
   label: string;

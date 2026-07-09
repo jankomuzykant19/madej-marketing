@@ -8,11 +8,9 @@ import {
   Check,
   Sparkles,
   LineChart,
-  Share2,
   Globe,
-  Palette,
-  Search,
   Rocket,
+  Clapperboard,
   Zap,
   CalendarClock,
   Eye,
@@ -34,12 +32,10 @@ type Service = {
 };
 
 const SERVICES: Service[] = [
-  { id: "google", label: "Kampanie Google Ads", desc: "Wyszukiwarka, PMax, remarketing", icon: LineChart },
-  { id: "social", label: "Social & Meta Ads", desc: "Facebook, Instagram, TikTok", icon: Share2 },
-  { id: "web", label: "Strona / Landing page", desc: "Projekt i wdrożenie, które konwertuje", icon: Globe },
-  { id: "brand", label: "Branding", desc: "Logo, identyfikacja, spójny wizerunek", icon: Palette },
-  { id: "seo", label: "SEO / pozycjonowanie", desc: "Ruch organiczny, który rośnie", icon: Search },
-  { id: "strategy", label: "Kompleksowa strategia", desc: "Prowadzimy marketing od A do Z", icon: Rocket },
+  { id: "paid", label: "Kampanie płatne", desc: "Google, Meta, TikTok, LinkedIn — dobrane do strategii", icon: LineChart },
+  { id: "strategy", label: "Kompleksowa strategia", desc: "Logiczny plan działania od A do Z", icon: Rocket },
+  { id: "web", label: "Strona / Landing Page", desc: "Szybkie strony sprzedażowe", icon: Globe },
+  { id: "creative", label: "Materiały i kreacje", desc: "Grafiki, wideo, boost reklam", icon: Clapperboard },
 ];
 
 const BUDGETS = [
@@ -47,6 +43,7 @@ const BUDGETS = [
   { id: "m", label: "2 000 – 5 000 zł", desc: "miesięcznie" },
   { id: "l", label: "5 000 – 15 000 zł", desc: "miesięcznie" },
   { id: "xl", label: "powyżej 15 000 zł", desc: "skalowanie" },
+  { id: "talk", label: "Chcę ustalić na rozmowie", desc: "doradzę Ci najlepszy zakres" },
 ];
 
 const TIMELINES = [
@@ -78,20 +75,20 @@ const EMPTY: LeadState = {
   message: "",
 };
 
-const STEPS = ["Usługa", "Budżet", "Termin", "Dane"] as const;
+const STEPS = ["Zakres", "Budżet", "Termin", "Dane"] as const;
 
 /* Adaptive recommendation — the "smart" bit */
 function recommendation(state: LeadState): string {
   const n = state.services.length;
-  if (n === 0) return "Zaznacz obszary, które Cię interesują — dobierzemy resztę.";
+  if (n === 0) return "Zaznacz obszary, które Cię interesują — resztę dobiorę razem z Tobą.";
   const names = state.services
     .map((id) => SERVICES.find((s) => s.id === id)?.label.toLowerCase())
     .filter(Boolean);
   if (state.services.includes("strategy"))
-    return "Świetnie — kompleksowa opieka daje najlepsze efekty. Zaproponujemy plan na pierwszy kwartał.";
+    return "Świetnie — zaczniemy od strategii i audytu, a potem wdrożę pierwsze działania. Bez zobowiązań.";
   if (n >= 3)
-    return `Zgrany zestaw ${n} usług — poprowadzimy je jako jeden, spójny lejek sprzedaży.`;
-  return `Skupimy się na: ${names.join(" + ")}. Dobre połączenie na szybkie efekty.`;
+    return `Zgrany zestaw ${n} obszarów — poprowadzę je jako jeden, spójny lejek sprzedaży.`;
+  return `Skupię się na: ${names.join(" + ")}. Dobre połączenie na szybkie, mierzalne efekty.`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -120,7 +117,7 @@ function Tile({
       className={cn(
         "group relative flex w-full flex-col gap-2 rounded-2xl border p-4 text-left transition-all duration-200",
         active
-          ? "border-gold/70 bg-gold/[0.08] shadow-[0_0_0_1px_rgba(201,162,39,0.4),0_16px_40px_-24px_rgba(201,162,39,0.6)]"
+          ? "border-gold/70 bg-gold/[0.08] shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-gold)_40%,transparent),0_16px_40px_-24px_color-mix(in_srgb,var(--color-gold)_60%,transparent)]"
           : "border-line bg-panel/50 hover:border-line-strong hover:bg-panel"
       )}
     >
@@ -181,7 +178,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
   const canProceed = [
     state.services.length > 0,
     !!state.budget,
-    !!state.timeline,
+    true, // termin jest opcjonalny — można pominąć
     state.name.trim().length > 1 && emailValid,
   ];
 
@@ -201,10 +198,10 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
       <div className="flex items-center justify-between border-b border-line px-6 py-5 sm:px-8">
         <div>
           <p className="flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-gold/80">
-            <Sparkles className="h-3.5 w-3.5" /> Skontaktuj się
+            <Sparkles className="h-3.5 w-3.5" /> Darmowa rozmowa
           </p>
           <h2 className="mt-1 font-display text-2xl font-semibold text-cream">
-            Opowiedz nam o projekcie
+            Opowiedz mi o projekcie
           </h2>
         </div>
         <button
@@ -258,8 +255,8 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
               >
                 {step === 0 && (
                   <StepShell
-                    title="Czego potrzebujesz?"
-                    subtitle="Możesz wybrać kilka obszarów."
+                    title="Zakres działań"
+                    subtitle="W czym mogę Ci pomóc? Możesz wybrać kilka obszarów."
                   >
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {SERVICES.map((s) => (
@@ -280,7 +277,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 {step === 1 && (
                   <StepShell
                     title="Jaki budżet miesięczny rozważasz?"
-                    subtitle="Orientacyjnie — pomoże nam dobrać zakres."
+                    subtitle="Orientacyjnie — pomoże mi dobrać zakres."
                   >
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {BUDGETS.map((b) => (
@@ -299,7 +296,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 {step === 2 && (
                   <StepShell
                     title="Kiedy chcesz wystartować?"
-                    subtitle="Dopasujemy tempo do Ciebie."
+                    subtitle="Opcjonalnie — możesz pominąć, dopasujemy tempo na rozmowie."
                   >
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                       {TIMELINES.map((t) => (
@@ -319,7 +316,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 {step === 3 && (
                   <StepShell
                     title="Zostaw namiary"
-                    subtitle="Odezwiemy się z konkretną propozycją."
+                    subtitle="Odezwę się i umówimy darmową rozmowę — bez zobowiązań."
                   >
                     <form
                       id="lead-form"
@@ -414,9 +411,9 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 type="button"
                 onClick={next}
                 disabled={!canProceed[step]}
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_30px_-10px_rgba(201,162,39,0.7)] transition-all hover:shadow-[0_14px_40px_-8px_rgba(201,162,39,0.85)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
+                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_30px_-10px_color-mix(in_srgb,var(--color-gold)_70%,transparent)] transition-all hover:shadow-[0_14px_40px_-8px_color-mix(in_srgb,var(--color-gold)_85%,transparent)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
               >
-                Dalej
+                {step === 2 && !state.timeline ? "Pomiń" : "Dalej"}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </button>
             ) : (
@@ -424,7 +421,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
                 type="submit"
                 form="lead-form"
                 disabled={!canProceed[step] || status === "sending"}
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_30px_-10px_rgba(201,162,39,0.7)] transition-all hover:shadow-[0_14px_40px_-8px_rgba(201,162,39,0.85)] disabled:cursor-not-allowed disabled:opacity-40"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-gold-deep via-gold to-gold-bright px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_30px_-10px_color-mix(in_srgb,var(--color-gold)_70%,transparent)] transition-all hover:shadow-[0_14px_40px_-8px_color-mix(in_srgb,var(--color-gold)_85%,transparent)] disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {status === "sending" ? (
                   <>
@@ -490,10 +487,10 @@ function SuccessScreen({
       </motion.span>
 
       <h3 className="mt-6 font-display text-3xl font-semibold text-cream">
-        Dziękujemy{state.name ? `, ${state.name.split(" ")[0]}` : ""}!
+        Dziękuję{state.name ? `, ${state.name.split(" ")[0]}` : ""}!
       </h3>
       <p className="mt-3 max-w-md text-cream-dim">
-        Zapisaliśmy Twoje preferencje
+        Zapisałem Twoje preferencje
         {services.length > 0 && (
           <>
             {" "}

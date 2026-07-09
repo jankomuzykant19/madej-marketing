@@ -18,16 +18,18 @@
   --color-cream-dim: rgba(245, 240, 232, 0.62);
   --color-cream-faint: rgba(245, 240, 232, 0.38);
 
-  --color-gold: #c9a227;
-  --color-gold-bright: #e6c454;
-  --color-gold-deep: #8a6d18;
+  --color-gold: #10b981;
+  --color-gold-bright: #84cc16;
+  --color-gold-deep: #0b8f66;
 
-  --font-display: var(--font-display-src), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-body-src), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-display-theme, var(--font-display-src)), Georgia,
+    "Times New Roman", serif;
+  --font-body: var(--font-body-theme, var(--font-body-src)), system-ui,
+    -apple-system, sans-serif;
 
   --radius: 1rem;
-  --shadow-glow: 0 0 0 1px rgba(201, 162, 39, 0.18),
-    0 20px 60px -20px rgba(201, 162, 39, 0.35);
+  --shadow-glow: 0 0 0 1px color-mix(in srgb, var(--color-gold) 18%, transparent),
+    0 20px 60px -20px color-mix(in srgb, var(--color-gold) 35%, transparent);
 }
 
 * {
@@ -49,7 +51,7 @@ body {
 }
 
 ::selection {
-  background: rgba(201, 162, 39, 0.28);
+  background: color-mix(in srgb, var(--color-gold) 28%, transparent);
   color: var(--color-cream);
 }
 
@@ -62,12 +64,12 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(201, 162, 39, 0.25);
+  background: color-mix(in srgb, var(--color-gold) 25%, transparent);
   border-radius: 999px;
   border: 3px solid var(--color-ink);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(201, 162, 39, 0.45);
+  background: color-mix(in srgb, var(--color-gold) 45%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
