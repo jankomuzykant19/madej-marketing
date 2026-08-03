@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { ContactProvider, useContact } from "@/components/contact-provider";
 import { SiteHeader } from "@/components/site/site-header";
+import { SiteFooter } from "@/components/site/site-footer";
 import { NextSteps } from "@/components/site/next-steps";
 import { THEME_VARS } from "@/lib/theme";
 
@@ -242,15 +243,6 @@ function Landing() {
   );
 }
 
-function TechFooter() {
-  return (
-    <footer className="relative z-10 px-6 py-10 text-center font-body text-xs text-cream-faint sm:px-10">
-      <span className="text-gold">//</span> madej_marketing © 2026 — kreacje &amp;
-      landing pages
-    </footer>
-  );
-}
-
 export default function KreacjePage() {
   return (
     <div
@@ -264,7 +256,7 @@ export default function KreacjePage() {
         <Creatives />
         <Landing />
         <NextSteps />
-        <TechFooter />
+        <SiteFooter />
       </ContactProvider>
     </div>
   );

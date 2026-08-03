@@ -18,6 +18,7 @@ import {
 import BeamsBackground from "@/components/kokonutui/beams-background";
 import { ContactProvider, useContact } from "@/components/contact-provider";
 import { SiteHeader } from "@/components/site/site-header";
+import { SiteFooter } from "@/components/site/site-footer";
 import { NextSteps } from "@/components/site/next-steps";
 import { THEME_VARS } from "@/lib/theme";
 
@@ -260,14 +261,6 @@ function Services() {
         })}
       </div>
     </section>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="border-t border-line px-6 py-10 text-center text-xs text-cream-faint sm:px-10">
-      © 2026 Madej Marketing · Marketing, który sprzedaje.
-    </footer>
   );
 }
 

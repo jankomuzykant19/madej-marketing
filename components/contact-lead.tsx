@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import {
   ArrowLeft,
@@ -146,7 +147,16 @@ function Tile({
 /*  Main                                                               */
 /* ------------------------------------------------------------------ */
 
-export function ContactLead({ onClose }: { onClose: () => void }) {
+export function ContactLead({
+  onClose,
+  variant = "panel",
+}: {
+  /** Omitted when the form is embedded in a page (nothing to close). */
+  onClose?: () => void;
+  /** `panel` = slide-over with its own scroll area, `page` = inline block. */
+  variant?: "panel" | "page";
+}) {
+  const isPanel = variant === "panel";
   const [step, setStep] = React.useState(0);
   const [state, setState] = React.useState<LeadState>(EMPTY);
   const [status, setStatus] = React.useState<"idle" | "sending" | "done" | "error">("idle");
@@ -214,7 +224,7 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="flex h-full flex-col">
+    <div className={cn("flex flex-col", isPanel && "h-full")}>
       {/* header */}
       <div className="flex items-center justify-between border-b border-line px-6 py-5 sm:px-8">
         <div>
@@ -225,13 +235,15 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
             Opowiedz mi o projekcie
           </h2>
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          className="rounded-full border border-line px-4 py-2 text-sm text-cream-dim transition-colors hover:border-line-strong hover:text-cream"
-        >
-          Zamknij
-        </button>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="rounded-full border border-line px-4 py-2 text-sm text-cream-dim transition-colors hover:border-line-strong hover:text-cream"
+          >
+            Zamknij
+          </button>
+        )}
       </div>
 
       {status === "done" ? (
@@ -265,7 +277,12 @@ export function ContactLead({ onClose }: { onClose: () => void }) {
           </div>
 
           {/* body */}
-          <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+          <div
+            className={cn(
+              "px-6 py-6 sm:px-8",
+              isPanel && "flex-1 overflow-y-auto"
+            )}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={step}
@@ -470,7 +487,7 @@ function SuccessScreen({
   onClose,
 }: {
   state: LeadState;
-  onClose: () => void;
+  onClose?: () => void;
 }) {
   const services = state.services
     .map((id) => SERVICES.find((s) => s.id === id)?.label)
@@ -506,13 +523,22 @@ function SuccessScreen({
         . Odezwę się wkrótce, żeby umówić darmową rozmowę — bez zobowiązań.
       </p>
 
-      <button
-        type="button"
-        onClick={onClose}
-        className="mt-8 inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-gold/50 hover:text-gold-bright"
-      >
-        Wróć na stronę
-      </button>
+      {onClose ? (
+        <button
+          type="button"
+          onClick={onClose}
+          className="mt-8 inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-gold/50 hover:text-gold-bright"
+        >
+          Wróć na stronę
+        </button>
+      ) : (
+        <Link
+          href="/"
+          className="mt-8 inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-cream transition-colors hover:border-gold/50 hover:text-gold-bright"
+        >
+          Wróć na stronę główną
+        </Link>
+      )}
     </motion.div>
   );
 }
