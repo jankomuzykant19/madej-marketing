@@ -106,6 +106,7 @@ export default function PrivacyPolicyPage() {
                 "Vercel Inc. — hosting strony,",
                 "Google (Google Workspace / Gmail, Arkusze Google) — zapisywanie zgłoszeń z formularza i korespondencja e-mail,",
                 "Usercentrics A/S (Cookiebot) — zarządzanie zgodami na cookies,",
+                "Google Ireland Ltd. (Google Tag Manager, Google Analytics 4) — statystyki odwiedzin strony, wyłącznie po wyrażeniu zgody na cookies statystyczne,",
                 "biuro rachunkowe — w zakresie dokumentów księgowych.",
               ]}
             />

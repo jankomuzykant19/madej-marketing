@@ -3,6 +3,12 @@ import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import { MotionProvider } from "@/components/motion-provider";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
+import { ContactClickTracking } from "@/components/contact-click-tracking";
+import {
+  CONSENT_DEFAULT_SCRIPT,
+  GTM_ID,
+  GTM_SCRIPT,
+} from "@/lib/analytics";
 import "./globals.css";
 
 const display = Manrope({
@@ -45,6 +51,22 @@ export default function RootLayout({
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
+        {/* GTM without JavaScript (official fallback). */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* Consent Mode v2 defaults — must run before Cookiebot and GTM. */}
+        <Script
+          id="consent-default"
+          strategy="beforeInteractive"
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SCRIPT }}
+        />
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
@@ -52,6 +74,14 @@ export default function RootLayout({
           data-blockingmode="auto"
           strategy="beforeInteractive"
         />
+        {/* GTM loads regardless of the banner; its tags wait for consent. */}
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{ __html: GTM_SCRIPT }}
+        />
+        <ContactClickTracking />
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>

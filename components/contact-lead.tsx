@@ -16,6 +16,7 @@ import {
   PartyPopper,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 import { FieldWrap, TextInput, TextArea } from "@/components/ui/field";
 
 /* ------------------------------------------------------------------ */
@@ -216,6 +217,12 @@ export function ContactLead({
         return;
       }
 
+      // GTM conversion trigger. No personal data — only what was chosen.
+      trackEvent("generate_lead", {
+        lead_services: services.join(", "),
+        lead_budget: budget ?? "",
+        form_location: isPanel ? "panel" : "kontakt",
+      });
       setStatus("done");
     } catch {
       setErrorMessage("Nie udało się wysłać zgłoszenia. Sprawdź połączenie i spróbuj ponownie.");
