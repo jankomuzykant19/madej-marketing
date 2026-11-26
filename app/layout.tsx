@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import { MotionProvider } from "@/components/motion-provider";
 import "./globals.css";
 
-const display = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600"],
+const display = Manrope({
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700", "800"],
   variable: "--font-display-src",
 });
 
