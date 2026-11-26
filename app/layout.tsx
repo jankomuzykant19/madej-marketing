@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Manrope } from "next/font/google";
 import { MotionProvider } from "@/components/motion-provider";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
 const display = Manrope({
@@ -30,11 +31,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" className="dark">
+    <html lang="pl" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${display.variable} ${body.variable}`}
       >
+        {/* Sets data-theme before the page content paints (see lib/theme.ts).
+            It sits at the top of <body>, not in <head>, because Cookiebot
+            injects its own scripts into <head> and would break hydration.
+            Marked so Cookiebot's auto-blocking leaves it alone — it stores
+            nothing but the visitor's own theme choice. */}
+        <script
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
+        />
         <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"

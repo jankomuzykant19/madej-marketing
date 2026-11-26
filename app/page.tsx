@@ -127,7 +127,7 @@ function Hero() {
 
   return (
     <BeamsBackground intensity="medium">
-      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,transparent,rgba(10,10,15,0.6)_70%,rgba(10,10,15,0.95))]" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_70%_60%_at_50%_-10%,transparent,color-mix(in_srgb,var(--color-ink)_60%,transparent)_70%,color-mix(in_srgb,var(--color-ink)_95%,transparent))]" />
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 sm:px-10">
         <div className="flex flex-1 flex-col items-center justify-center pt-32 pb-16 text-center">

@@ -36,6 +36,36 @@
     -apple-system, sans-serif;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Light theme — same token names, so every component re-skins.       */
+/*  `cream` is the text colour and `ink` the page background; accents  */
+/*  are darkened so text and white button labels keep AA contrast.     */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: dark;
+  --color-danger: #fca5a5;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-ink: #ffffff;
+  --color-ink-soft: #f7f8f6;
+  --color-panel: #f3f5f1;
+  --color-panel-raised: #eaede7;
+  --color-line: rgba(20, 22, 28, 0.1);
+  --color-line-strong: rgba(20, 22, 28, 0.2);
+
+  --color-cream: #14161c;
+  --color-cream-dim: rgba(20, 22, 28, 0.74);
+  --color-cream-faint: rgba(20, 22, 28, 0.6);
+
+  --color-gold: #047857;
+  --color-gold-bright: #4d7c0f;
+  --color-gold-deep: #065f46;
+  --color-danger: #b91c1c;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -411,7 +411,7 @@ export function ContactLead({
           {/* footer nav */}
           <div className="border-t border-line px-6 py-4 sm:px-8">
             {status === "error" && errorMessage && (
-              <p className="mb-3 text-center text-sm text-red-300/90">{errorMessage}</p>
+              <p className="mb-3 text-center text-sm text-[var(--color-danger)]">{errorMessage}</p>
             )}
             {step === STEPS.length - 1 && (
               <p className="mb-4 text-xs leading-relaxed text-cream-faint">

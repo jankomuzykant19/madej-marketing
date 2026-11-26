@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { MadejLogo } from "@/components/madej-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { useContact } from "@/components/contact-provider";
 import { NAV_LINKS } from "@/components/site/nav";
 import { cn } from "@/lib/utils";
@@ -61,6 +62,8 @@ export function SiteHeader() {
             </Link>
           ))}
 
+          <ThemeToggle />
+
           {onContactPage ? (
             <a
               href="#formularz"
@@ -79,7 +82,9 @@ export function SiteHeader() {
           )}
         </nav>
 
-        {/* mobile burger */}
+        {/* mobile: theme switch + burger */}
+        <div className="flex items-center gap-2 md:hidden">
+        <ThemeToggle />
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
@@ -90,6 +95,7 @@ export function SiteHeader() {
         >
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
+        </div>
       </div>
 
       {/* mobile dropdown */}

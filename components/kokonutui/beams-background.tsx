@@ -111,15 +111,19 @@ export default function BeamsBackground({
       ctx.translate(beam.x, beam.y);
       ctx.rotate((beam.angle * Math.PI) / 180);
 
-      const pulsingOpacity =
+      let pulsingOpacity =
         beam.opacity *
         (0.8 + Math.sin(beam.pulse) * 0.2) *
         opacityMap[intensity];
 
       const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
 
-      const saturation = "72%";
-      const lightness = "58%";
+      // On the white theme, deeper and softer beams read as a gentle tint
+      // instead of washing out behind the dark headline.
+      const light = document.documentElement.dataset.theme === "light";
+      const saturation = light ? "65%" : "72%";
+      const lightness = light ? "45%" : "58%";
+      if (light) pulsingOpacity *= 0.55;
 
       gradient.addColorStop(0, `hsla(${beam.hue}, ${saturation}, ${lightness}, 0)`);
       gradient.addColorStop(

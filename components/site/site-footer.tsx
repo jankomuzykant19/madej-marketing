@@ -111,7 +111,7 @@ export function SiteFooter() {
             light backing panel to stay legible on the dark layout. One strip at
             every width, simply scaled down to fit. */}
         <div className="mt-12 border-t border-line pt-10">
-          <div className="rounded-2xl bg-white px-4 py-4 sm:px-6 sm:py-5">
+          <div className="rounded-2xl border border-line bg-white px-4 py-4 sm:px-6 sm:py-5">
             <Image
               src="/eu.png"
               alt="Fundusze Europejskie — Rzeczpospolita Polska — Dofinansowane przez Unię Europejską"

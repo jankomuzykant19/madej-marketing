@@ -3,19 +3,22 @@ import type { CSSProperties } from "react";
 export type ThemeKey = "premium";
 
 /**
- * Themes only override CSS custom properties. Every component styles itself with
- * the `gold` / `cream` / `ink` design tokens (which compile to `var(--color-…)`),
- * so swapping these variables re-skins the whole subtree with zero component
- * changes.
- *
- * `premium` = the site palette (emerald → lime) used on every page.
+ * Colour tokens live in app/globals.css (dark by default, light under
+ * `:root[data-theme="light"]`), so the light/dark switch can re-skin every
+ * page. These wrapper vars only pin the font families.
  */
 export const THEME_VARS: Record<ThemeKey, CSSProperties> = {
   premium: {
-    ["--color-gold" as string]: "#10B981",
-    ["--color-gold-bright" as string]: "#84CC16",
-    ["--color-gold-deep" as string]: "#0b8f66",
     ["--font-display-theme" as string]: "var(--font-display-src)",
     ["--font-body-theme" as string]: "var(--font-body-src)",
   },
 };
+
+export type ColorMode = "light" | "dark";
+export const THEME_STORAGE_KEY = "mm-theme";
+
+/**
+ * Runs in <head> before first paint: picks the saved choice, else the OS
+ * preference, else dark — so the page never flashes the wrong theme.
+ */
+export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem("${THEME_STORAGE_KEY}");if(t!=="light"&&t!=="dark"){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})();`;
