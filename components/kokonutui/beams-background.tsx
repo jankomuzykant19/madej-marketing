@@ -166,9 +166,35 @@ export default function BeamsBackground({
       animationFrameRef.current = requestAnimationFrame(animate);
     }
 
-    animate();
+    // Respect "reduce motion": draw a single still frame. Otherwise only run
+    // the loop while the hero is on screen, so it doesn't burn CPU below it.
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    let running = false;
+    const start = () => {
+      if (running || reduceMotion) return;
+      running = true;
+      animate();
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(animationFrameRef.current);
+    };
+
+    let observer: IntersectionObserver | undefined;
+    if (reduceMotion) {
+      animate();
+      cancelAnimationFrame(animationFrameRef.current);
+    } else {
+      observer = new IntersectionObserver(([entry]) =>
+        entry.isIntersecting ? start() : stop()
+      );
+      observer.observe(canvas);
+    }
 
     return () => {
+      observer?.disconnect();
       window.removeEventListener("resize", updateCanvasSize);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);

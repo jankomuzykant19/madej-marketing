@@ -45,7 +45,7 @@ function Intro() {
         transition={{ duration: 0.6 }}
         className="mx-auto max-w-3xl text-center"
       >
-        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/[0.06] px-4 py-1.5 text-xs uppercase tracking-[0.24em] text-gold/90">
+        <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/[0.06] px-4 py-1.5 text-xs uppercase tracking-[0.24em] text-gold">
           <Sparkles className="h-3.5 w-3.5" /> Kontakt
         </p>
         <h1 className="font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">
@@ -64,15 +64,11 @@ function Channels() {
   return (
     <section className="px-6 pt-12 sm:px-10" aria-label="Dane kontaktowe">
       <div className="mx-auto grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-2">
-        {CHANNELS.map((ch, i) => (
-          <motion.a
+        {CHANNELS.map((ch) => (
+          <a
             key={ch.label}
             href={ch.href}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="group rounded-3xl border border-line bg-panel/50 p-7 transition-colors hover:border-gold/40"
+            className="group rounded-3xl border border-line bg-panel/60 p-7 transition-colors hover:border-gold/40"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-gold/30 bg-gold/10 text-gold-bright">
               <ch.icon className="h-5 w-5" />
@@ -84,7 +80,7 @@ function Channels() {
               {ch.value}
             </p>
             <p className="mt-1 text-sm text-cream-dim">{ch.hint}</p>
-          </motion.a>
+          </a>
         ))}
       </div>
     </section>
@@ -93,31 +89,29 @@ function Channels() {
 
 function CompanyDetails() {
   return (
-    <section className="px-6 py-12 sm:px-10">
-      <h2 className="mx-auto mb-6 max-w-4xl text-xs font-medium uppercase tracking-[0.24em] text-gold/90">
-        Dane do faktury
-      </h2>
-      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-3">
-        {DETAILS.map((d, i) => (
-          <motion.div
-            key={d.label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="rounded-3xl border border-line bg-panel/50 p-6"
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gold/30 bg-gold/10 text-gold-bright">
-              <d.icon className="h-5 w-5" />
-            </span>
-            <p className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-cream-faint">
-              {d.label}
-            </p>
-            <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-cream">
-              {d.value}
-            </p>
-          </motion.div>
-        ))}
+    <section className="px-6 pb-20 sm:px-10" aria-labelledby="dane-firmy">
+      <div className="mx-auto max-w-3xl rounded-3xl border border-line p-6 sm:p-7">
+        <h2
+          id="dane-firmy"
+          className="text-xs font-medium uppercase tracking-[0.24em] text-gold"
+        >
+          Dane do faktury
+        </h2>
+        <dl className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {DETAILS.map((d) => (
+            <div key={d.label} className="flex gap-3">
+              <d.icon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <div>
+                <dt className="text-xs uppercase tracking-[0.16em] text-cream-faint">
+                  {d.label}
+                </dt>
+                <dd className="mt-1 whitespace-pre-line text-sm leading-relaxed text-cream">
+                  {d.value}
+                </dd>
+              </div>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
@@ -127,7 +121,7 @@ function EmbeddedForm() {
   return (
     <section
       id="formularz"
-      className="scroll-mt-[112px] px-6 pb-20 sm:px-10"
+      className="scroll-mt-[112px] px-6 pt-10 pb-10 sm:px-10"
       aria-label="Formularz kontaktowy"
     >
       <div className="mx-auto max-w-3xl overflow-hidden rounded-3xl border border-line bg-ink-soft">
@@ -146,8 +140,8 @@ export default function KontaktPage() {
         <main className="relative bg-ink">
           <Intro />
           <Channels />
-          <CompanyDetails />
           <EmbeddedForm />
+          <CompanyDetails />
         </main>
         <SiteFooter />
       </ContactProvider>

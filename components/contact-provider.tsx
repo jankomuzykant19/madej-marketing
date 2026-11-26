@@ -36,7 +36,7 @@ export function ContactProvider({ children }: { children: React.ReactNode }) {
       {children}
 
       {/* The contact panel always uses the premium theme, so it looks identical
-          on every page (incl. the tech "Kreacje / LP" page). */}
+          on every page. */}
       <div style={THEME_VARS.premium}>
         <AnimatePresence>
           {open && (

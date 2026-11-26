@@ -11,12 +11,12 @@
   --color-ink-soft: #101017;
   --color-panel: #14141c;
   --color-panel-raised: #1b1b25;
-  --color-line: rgba(245, 240, 232, 0.08);
-  --color-line-strong: rgba(245, 240, 232, 0.16);
+  --color-line: rgba(245, 240, 232, 0.11);
+  --color-line-strong: rgba(245, 240, 232, 0.2);
 
   --color-cream: #f5f0e8;
-  --color-cream-dim: rgba(245, 240, 232, 0.62);
-  --color-cream-faint: rgba(245, 240, 232, 0.38);
+  --color-cream-dim: rgba(245, 240, 232, 0.74);
+  --color-cream-faint: rgba(245, 240, 232, 0.54);
 
   --color-gold: #10b981;
   --color-gold-bright: #84cc16;

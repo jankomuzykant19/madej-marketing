@@ -53,7 +53,7 @@ export function MadejLogo({ className, withWordmark = true }: MadejLogoProps) {
           <span className="font-display text-xl font-semibold tracking-tight text-cream">
             Madej
           </span>
-          <span className="text-[0.62rem] font-light uppercase tracking-[0.42em] text-gold/80">
+          <span className="mt-0.5 text-[0.7rem] font-medium uppercase tracking-[0.32em] text-gold">
             Marketing
           </span>
         </span>

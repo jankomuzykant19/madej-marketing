@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+import { MotionProvider } from "@/components/motion-provider";
 import "./globals.css";
 
 const display = Playfair_Display({
@@ -15,18 +16,12 @@ const body = Inter({
   variable: "--font-body-src",
 });
 
-// Kreacje / LP page — monospace
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-tech",
-});
 
 export const metadata: Metadata = {
   
-  title: "Madej Marketing - Marketing, który sprzedaje",
+  title: "Madej Marketing — strona, reklamy i analityka od jednej osoby",
   description:
-    "Madej Marketing — kampanie, strony i strategie, które zamieniają uwagę w klientów. Skontaktuj się i opowiedz nam o swoim projekcie.",
+    "Strony, kampanie Meta i Google Ads oraz analityka od jednej osoby — dla firm, które chcą wyników, a nie lajków. Bezpłatny audyt i wycena w 5 dni.",
 };
 
 export default function RootLayout({
@@ -38,7 +33,7 @@ export default function RootLayout({
     <html lang="pl" className="dark">
       <body
         suppressHydrationWarning
-        className={`${display.variable} ${body.variable} ${mono.variable}`}
+        className={`${display.variable} ${body.variable}`}
       >
         <Script
           id="Cookiebot"
@@ -47,7 +42,7 @@ export default function RootLayout({
           data-blockingmode="auto"
           strategy="beforeInteractive"
         />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

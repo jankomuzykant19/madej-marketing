@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { MadejLogo } from "@/components/madej-logo";
+import { CookieSettingsButton } from "@/components/cookie-declaration";
 import {
   CONTACT,
   CONTACT_FORM_HREF,
@@ -15,8 +16,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Shared footer for every page. Inherits the surrounding theme variables, so it
- * renders in the premium palette on the home/contact pages and in the tech
- * palette on "Kreacje / LP" with no extra work.
+ * renders in the site palette on every page.
  */
 export function SiteFooter() {
   const pathname = usePathname();
@@ -43,7 +43,7 @@ export function SiteFooter() {
 
           {/* navigation */}
           <nav aria-label="Nawigacja w stopce">
-            <h2 className="text-xs font-medium uppercase tracking-[0.24em] text-gold/90">
+            <h2 className="text-xs font-medium uppercase tracking-[0.24em] text-gold">
               Nawigacja
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -66,7 +66,7 @@ export function SiteFooter() {
 
           {/* contact / form */}
           <div>
-            <h2 className="text-xs font-medium uppercase tracking-[0.24em] text-gold/90">
+            <h2 className="text-xs font-medium uppercase tracking-[0.24em] text-gold">
               Kontakt
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -123,9 +123,18 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="mt-10 text-center text-xs text-cream-faint">
-          © 2026 Madej Marketing · Marketing, który sprzedaje.
-        </p>
+        <div className="mt-10 flex flex-col items-center gap-3 text-xs text-cream-faint sm:flex-row sm:justify-between">
+          <p>© 2026 Madej Marketing</p>
+          <div className="flex items-center gap-5">
+            <Link
+              href="/polityka-prywatnosci"
+              className="transition-colors hover:text-cream"
+            >
+              Polityka prywatności
+            </Link>
+            <CookieSettingsButton className="transition-colors hover:text-cream" />
+          </div>
+        </div>
       </div>
     </footer>
   );

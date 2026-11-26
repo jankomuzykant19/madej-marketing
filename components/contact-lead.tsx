@@ -41,7 +41,7 @@ const BUDGETS = [
   { id: "m", label: "2 000 – 5 000 zł", desc: "miesięcznie" },
   { id: "l", label: "5 000 – 15 000 zł", desc: "miesięcznie" },
   { id: "xl", label: "powyżej 15 000 zł", desc: "skalowanie" },
-  { id: "talk", label: "Chcę ustalić na rozmowie", desc: "doradzę Ci najlepszy zakres" },
+  { id: "talk", label: "Jeszcze nie wiem", desc: "ustalimy to na rozmowie — doradzę Ci" },
 ];
 
 type LeadState = {
@@ -228,7 +228,7 @@ export function ContactLead({
       {/* header */}
       <div className="flex items-center justify-between border-b border-line px-6 py-5 sm:px-8">
         <div>
-          <p className="flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-gold/80">
+          <p className="flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-gold">
             <Sparkles className="h-3.5 w-3.5" /> Darmowa rozmowa
           </p>
           <h2 className="mt-1 font-display text-2xl font-semibold text-cream">
@@ -412,6 +412,22 @@ export function ContactLead({
           <div className="border-t border-line px-6 py-4 sm:px-8">
             {status === "error" && errorMessage && (
               <p className="mb-3 text-center text-sm text-red-300/90">{errorMessage}</p>
+            )}
+            {step === STEPS.length - 1 && (
+              <p className="mb-4 text-xs leading-relaxed text-cream-faint">
+                Wysyłając formularz, przekazujesz mi swoje dane, abym mógł
+                odpowiedzieć na zapytanie i przygotować wycenę. Administratorem
+                danych jest Bartłomiej Madej Marketing. Szczegóły, w tym Twoje
+                prawa, znajdziesz w{" "}
+                <Link
+                  href="/polityka-prywatnosci"
+                  target="_blank"
+                  className="text-cream-dim underline underline-offset-2 hover:text-cream"
+                >
+                  polityce prywatności
+                </Link>
+                .
+              </p>
             )}
             <div className="flex items-center justify-between gap-3">
             <button
