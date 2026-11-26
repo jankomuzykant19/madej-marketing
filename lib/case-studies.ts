@@ -31,10 +31,10 @@ export type CaseStudy = {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: "e-commerce-wloczki-meta-ads-1-mln",
-    client: "E-commerce · producent włóczek premium",
+    slug: "e-commerce-hobby-meta-ads-1-mln",
+    client: "E-commerce z branży hobby / rękodzieła",
     channel: "Meta Ads",
-    period: "06.2025 – 06.2026",
+    period: "13 miesięcy",
     title:
       "Jak niszowy e-commerce wygenerował ponad 1 000 000 PLN z Meta Ads",
     summary:
@@ -42,7 +42,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     stats: [
       { value: "1\u00a0mln+\u00a0PLN", label: "przychodu z Meta Ads w 13 miesięcy" },
       { value: "8,28", label: "średni ROAS (cel: 6,0)" },
-      { value: "+152,9%", label: "przychodu rok do roku (H1)" },
+      { value: "+152,9%", label: "przychodu rok do roku (I półrocze)" },
       { value: "−39%", label: "kosztu pozyskania przychodu (CRR)" },
     ],
     body: [
@@ -52,21 +52,21 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         type: "p",
-        text: "Case study mojego klienta – producenta włóczek premium – to dowód na to, że odpowiednia strategia asortymentowa i ścisła kontrola finansów potrafią zamienić „martwy sezon” w maszynę do generowania transakcji.",
+        text: "Case study mojego klienta – sklepu internetowego z branży hobby / rękodzieła – to dowód na to, że odpowiednia strategia asortymentowa i ścisła kontrola finansów potrafią zamienić „martwy sezon” w maszynę do generowania transakcji.",
       },
       {
         type: "callout",
         text: "W ciągu 13 miesięcy wygenerowałem dla klienta ponad 1 milion złotych przychodu z samych kampanii Meta Ads.",
       },
 
-      { type: "h2", text: "Kluczowe wyniki w liczbach (czerwiec 2025 – czerwiec 2026)" },
+      { type: "h2", text: "Kluczowe wyniki w liczbach (13 miesięcy)" },
       {
         type: "list",
         items: [
           "Ponad 1 mln PLN przychodu z samych kampanii Meta Ads w 13 miesięcy.",
           "Średni ROAS: 8,28 przy celu na poziomie 6,0.",
-          "Wzrost przychodów rok do roku (H1 vs H1): +152,9%.",
-          "Wzrost liczby zamówień (H1 vs H1): +162,6%.",
+          "Wzrost przychodów rok do roku (I półrocze): +152,9%.",
+          "Wzrost liczby zamówień rok do roku (I półrocze): +162,6%.",
           "Poprawa rentowności (CRR): spadek kosztów pozyskania przychodu o 39%.",
         ],
       },
@@ -74,11 +74,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       { type: "h2", text: "Wyzwanie: jak rozbić barierę sezonowości i odblokować konwersję?" },
       {
         type: "p",
-        text: "Mój klient oferuje produkt premium o silnej fluktuacji sezonowej. Naturalne zainteresowanie dziewiarstwem spada wiosną i latem, co oznaczało konieczność znalezienia sposobu na utrzymanie sprzedaży również poza szczytem sezonu.",
+        text: "Mój klient oferuje produkt premium o silnej fluktuacji sezonowej. Naturalne zainteresowanie tą kategorią spada wiosną i latem, co oznaczało konieczność znalezienia sposobu na utrzymanie sprzedaży również poza szczytem sezonu.",
       },
       {
         type: "p",
-        text: "Dodatkowo dotychczasowa komunikacja skupiała się przede wszystkim na pojedynczych produktach. Dla klienta oznaczało to konieczność samodzielnego zaplanowania projektu i wyliczenia, ile surowca będzie potrzebował. To tworzyło wysoką barierę wejścia i bezpośrednio hamowało współczynnik konwersji (CVR).",
+        text: "Dodatkowo dotychczasowa komunikacja skupiała się przede wszystkim na pojedynczych produktach. Dla klienta oznaczało to konieczność samodzielnego zaplanowania projektu i wyliczenia, ile materiałów będzie potrzebował. To tworzyło wysoką barierę wejścia i bezpośrednio hamowało współczynnik konwersji (CVR).",
       },
       {
         type: "p",
@@ -93,13 +93,13 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         type: "list",
         items: [
-          "Stary model: promowanie pojedynczych motków włóczki, co wymagało od klienta samodzielnego zaplanowania całego projektu i odpowiedniego dobrania ilości materiału.",
-          "Nowy model: promowanie kompletnych zestawów projektowych – wzór + precyzyjnie dobrana ilość surowca pod konkretny rozmiar.",
+          "Stary model: promowanie pojedynczych produktów, co wymagało od klienta samodzielnego zaplanowania całego projektu i odpowiedniego dobrania ilości materiałów.",
+          "Nowy model: promowanie gotowych zestawów produktowych – wszystko, czego klient potrzebuje do konkretnego projektu, w jednym koszyku.",
         ],
       },
       {
         type: "p",
-        text: "Zestawy rotowałem i dopasowywałem do pór roku. Latem promowałem lżejsze projekty, które naturalnie odpowiadały sezonowym potrzebom klientów.",
+        text: "Zestawy rotowałem i dopasowywałem do pór roku. Latem promowałem projekty, które naturalnie odpowiadały sezonowym potrzebom klientów.",
       },
       { type: "h3", text: "Efekt?" },
       {
@@ -109,9 +109,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         type: "quote",
         items: [
-          "Ile włóczki potrzebuję?",
-          "Czy wybrałem odpowiednią ilość?",
-          "Czy ten materiał wystarczy na mój rozmiar?",
+          "Ile produktu potrzebuję?",
+          "Czy dobrałem wszystko, co trzeba?",
+          "Czy to wystarczy na mój projekt?",
         ],
       },
       { type: "p", text: "Dostawał gotowe rozwiązanie." },
@@ -138,14 +138,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
 
       { type: "h2", text: "Twarde dane z panelu Meta Ads" },
-      { type: "h3", text: "1. Podsumowanie okresu głównego (01.06.2025 – 30.06.2026)" },
+      { type: "h3", text: "1. Podsumowanie 13 miesięcy" },
       {
         type: "p",
         text: "W ciągu 13 miesięcy kampanie pracowały ze stabilną, bardzo wysoką efektywnością, znacznie przebijając założone KPI.",
       },
       {
         type: "table",
-        head: ["Metryka", "Wynik (06.2025–06.2026)"],
+        head: ["Metryka", "Wynik (13 miesięcy)"],
         rows: [
           ["Średni ROAS", "8,28"],
           ["Wskaźnik CRR", "12,08%"],
@@ -156,14 +156,14 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: "p",
         text: "W ciągu zaledwie 13 miesięcy wygenerowałem więc ponad 1 milion PLN przychodu, a każda złotówka wydana na reklamę wracała średnio ponad 8-krotnie.",
       },
-      { type: "h3", text: "2. Skalowanie rok do roku: H1 2025 vs H1 2026" },
+      { type: "h3", text: "2. Skalowanie rok do roku: pierwsze półrocze" },
       {
         type: "p",
-        text: "Porównanie pierwszych półroczy – styczeń–czerwiec – najlepiej pokazuje, jak zmiana strategii na zestawy projektowe odblokowała wolumen zamówień.",
+        text: "Porównanie pierwszego półrocza z analogicznym okresem rok wcześniej najlepiej pokazuje, jak zmiana strategii na gotowe zestawy produktowe odblokowała wolumen zamówień.",
       },
       {
         type: "table",
-        head: ["Metryka", "Zmiana H1 2026 vs H1 2025"],
+        head: ["Metryka", "Zmiana rok do roku (I półrocze)"],
         rows: [
           ["Wydatki reklamowe", "+54,2%"],
           ["Przychód", "+152,9%"],
@@ -179,11 +179,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       { type: "h3", text: "3. Perspektywa długoterminowa – 24 miesiące" },
       {
         type: "p",
-        text: "W dłuższej perspektywie – od lipca 2024 do czerwca 2026 – mogłem sprawdzić, czy wysoki współczynnik konwersji (CVR) był jednorazowym wynikiem, czy rzeczywiście udało mi się zbudować powtarzalny model.",
+        text: "W dłuższej perspektywie – 24 miesięcy – mogłem sprawdzić, czy wysoki współczynnik konwersji (CVR) był jednorazowym wynikiem, czy rzeczywiście udało mi się zbudować powtarzalny model.",
       },
       {
         type: "table",
-        head: ["Metryka", "07.2024 – 06.2026"],
+        head: ["Metryka", "24 miesiące"],
         rows: [
           ["Średni wskaźnik CRR", "13,05%"],
           ["Średni współczynnik konwersji (CVR)", "2,59%"],
@@ -227,5 +227,12 @@ export const CASE_STUDIES: CaseStudy[] = [
 export const getCaseStudy = (slug: string) =>
   CASE_STUDIES.find((c) => c.slug === slug);
 
-/** Keeps hyphenated words like "e-commerce" from breaking across lines. */
-export const noBreakHyphens = (s: string) => s.replace(/-/g, "‑");
+/**
+ * Keeps hyphenated words like "e-commerce" and grouped numbers like
+ * "1 000 000 PLN" from breaking across lines.
+ */
+export const noBreakHyphens = (s: string) =>
+  s
+    .replace(/-/g, "‑")
+    .replace(/(\d) (?=\d)/g, "$1 ")
+    .replace(/(\d) (?=PLN)/g, "$1 ");
