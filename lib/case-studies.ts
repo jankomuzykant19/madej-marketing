@@ -368,6 +368,146 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "e-commerce-fitness-landing-page-meta-ads-konwersja-6x",
+    client: "Amerykański e-commerce z branży sprzętu treningowego",
+    channel: "Meta Ads + landing page",
+    period: "6 miesięcy",
+    title:
+      "Z 0,67% do 4,03%: jak nowy landing page i kreacje podniosły konwersję z Meta Ads 6×",
+    summary:
+      "Ruch był, sprzedaży nie. Zamiast kupować więcej kliknięć, przebudowałem to, co dzieje się po kliknięciu — w czterech iteracjach.",
+    stats: [
+      { value: "6×", label: "wyższy współczynnik konwersji (0,67% → 4,03%)" },
+      { value: "−77%", label: "kosztu pozyskania zakupu (CPA)" },
+      { value: "3,7×", label: "więcej zakupów z Meta Ads" },
+      { value: "2,9×", label: "wyższy przychód przy budżecie niższym o 17%" },
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Gdy reklamy przestają dowozić sprzedaż, odruchem jest zmiana kreacji, targetowania albo budżetu. W przypadku mojego klienta – amerykańskiej marki sprzętu treningowego – kluczowa bariera leżała gdzie indziej: w tym, co działo się po kliknięciu.",
+      },
+      {
+        type: "p",
+        text: "Przez kilka miesięcy pracowałem na dwóch frontach jednocześnie: przebudowywałem landing page w czterech iteracjach i rozwijałem kampanie o nowe materiały reklamowe.",
+      },
+      {
+        type: "callout",
+        text: "Efekt: 6× wyższy współczynnik konwersji i koszt pozyskania zakupu niższy o 77%.",
+      },
+
+      { type: "h2", text: "Kluczowe wyniki w liczbach" },
+      {
+        type: "p",
+        text: "Porównanie dwóch 28-dniowych okresów: przed zmianami i pół roku później, po wdrożeniu czwartej wersji landing page'a.",
+      },
+      {
+        type: "list",
+        items: [
+          "Współczynnik konwersji (kliknięcie → zakup): wzrost z 0,67% do 4,03%, czyli 6×.",
+          "Koszt pozyskania zakupu (CPA): spadek o 77%.",
+          "Liczba zakupów: wzrost 3,7×.",
+          "Przychód z Meta Ads: wzrost 2,9× – przy budżecie niższym o 17%.",
+          "Przychód z jednego kliknięcia: wzrost 4,8×.",
+        ],
+      },
+
+      { type: "h2", text: "Wyzwanie: ruch był, sprzedaży nie" },
+      {
+        type: "p",
+        text: "Kampanie generowały dużo ruchu przy niskim koszcie kliknięcia. Ruch jednak się nie konwertował: ponad 99% osób z reklamy opuszczało stronę bez zakupu, a kupował tylko 1 na 150 klikających. Dalsze zwiększanie zasięgu oznaczałoby kupowanie kolejnego ruchu, który i tak nie kupi.",
+      },
+
+      { type: "h2", text: "Strategia: dwa równoległe tory" },
+      { type: "h3", text: "Tor 1: landing page jako proces, nie jednorazowy projekt" },
+      {
+        type: "p",
+        text: "Zamiast jednego redesignu przeprowadziłem cztery iteracje nowego landing page'a. Każda wersja testowała inne podejście w trzech obszarach:",
+      },
+      {
+        type: "list",
+        items: [
+          "Ścieżka zakupowa: jak szybko i w ilu krokach klient przechodzi od zainteresowania do płatności. Wersja finalna pozwala pominąć koszyk i przejść od razu do checkoutu.",
+          "Treść landingu: jak komunikuję produkt, jego korzyści i argumenty zakupowe.",
+          "Sekcja produktowa: sposób prezentacji oferty i elementy ułatwiające decyzję.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Każda wersja dawała dane, które kształtowały kolejną. Wynik opisany w tym case study to efekt wersji v4: komunikacji korzyści dla sportowców, autorytetu twórcy produktu i jasnego wezwania do zakupu – zamiast klasycznego układu sklepu z galerią, opcjami produktu i dodatkami.",
+      },
+      { type: "h3", text: "Tor 2: nowe materiały reklamowe i optymalizacja kampanii" },
+      {
+        type: "p",
+        text: "Równolegle rozwijałem kampanie Meta Ads: tworzyłem nowe kreacje i optymalizowałem wyniki reklam. Efekt był widoczny już na pierwszym etapie lejka – CTR wzrósł z 0,92% do 1,12% (+22%). Reklamy przyciągały bardziej zaangażowany ruch, który nowa strona potrafiła zamienić w sprzedaż.",
+      },
+
+      { type: "h2", text: "Gdzie powstała różnica" },
+      {
+        type: "p",
+        text: "Oba tory się uzupełniały, ale skala zmian pokazuje, który był decydujący. Lepsze reklamy podniosły CTR o 22%. Współczynnik konwersji na stronie wzrósł 6×. Największa część wzrostu wydarzyła się po kliknięciu – na landing page'u. Dzięki temu każde kliknięcie z reklamy jest dziś warte prawie pięć razy więcej przychodu niż przed zmianami.",
+      },
+
+      { type: "h2", text: "Twarde dane z Meta Ads" },
+      { type: "h3", text: "1. Efektywność lejka" },
+      {
+        type: "table",
+        head: ["Metryka", "Przed (stara strona)", "Po (landing page v4)", "Zmiana"],
+        rows: [
+          ["CTR", "0,92%", "1,12%", "+22%"],
+          ["CPC", "1,16 USD", "1,57 USD", "+35%"],
+          ["Dodania do koszyka (z kliknięć)", "3,4%", "6,4%", "+88%"],
+          ["Kliknięcie → zakup", "0,67%", "4,03%", "+501% (6×)"],
+          ["CPA", "171,87 USD", "39,05 USD", "−77%"],
+          ["Przychód na kliknięcie", "0,49 USD", "2,33 USD", "+376% (4,8×)"],
+        ],
+      },
+      { type: "h3", text: "2. Skala" },
+      {
+        type: "table",
+        head: ["Metryka", "Zmiana (28 dni po vs 28 dni przed)"],
+        rows: [
+          ["Wydatki reklamowe", "−17%"],
+          ["Kliknięcia w link", "−39%"],
+          ["Dodania do koszyka", "+14%"],
+          ["Zakupy", "+266% (3,7×)"],
+          ["Przychód", "+192% (2,9×)"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Uwaga do lejka: stara strona miała ekspresowy zakup, który omijał zdarzenie rozpoczęcia checkoutu, a nowa pozwala pominąć koszyk. Etap „checkout” nie jest więc porównywalny między okresami – efekt oceniam na zakupach i dodaniach do koszyka.",
+      },
+
+      { type: "h2", text: "Kluczowe wnioski dla e-commerce" },
+      { type: "h3", text: "1. Reklama dowozi ruch, strona dowozi sprzedaż" },
+      {
+        type: "p",
+        text: "Nawet najlepsze kreacje nie pomogą, jeśli 99% ruchu odbija się od strony. Prawdziwy skok przyszedł dopiero wtedy, gdy lepsze reklamy spotkały się z dopracowaną ścieżką zakupową.",
+      },
+      { type: "h3", text: "2. Landing page to proces" },
+      {
+        type: "p",
+        text: "Przełomowy wynik dała dopiero czwarta wersja. Iteracyjne testowanie ścieżki, treści i sekcji produktowej wygrywa z jednorazowym redesignem.",
+      },
+      { type: "h3", text: "3. Wolumen ponad koszyk" },
+      {
+        type: "p",
+        text: "Średnia wartość zamówienia spadła o ok. 20%, ale 3,7× więcej zamówień dało niemal 3× wyższy przychód. Krótsza ścieżka zakupowa przyciąga więcej decyzji.",
+      },
+
+      { type: "h2", text: "Twoje reklamy klikają, ale nie sprzedają?" },
+      {
+        type: "p",
+        text: "Wysoki CTR i tani ruch nic nie znaczą, jeśli strona nie domyka sprzedaży. Nie tylko prowadzę kampanie – pracuję na całym lejku, od kreacji reklamowej po płatność, i iteracyjnie przebudowuję miejsca, w których uciekają klienci.",
+      },
+      {
+        type: "callout",
+        text: "Strona + reklamy + analityka od jednej osoby – dlatego widzę, gdzie naprawdę gubisz sprzedaż.",
+      },
+    ],
+  },
 ];
 
 export const getCaseStudy = (slug: string) =>
