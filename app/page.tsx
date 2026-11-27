@@ -347,7 +347,10 @@ function Results() {
       <SectionHeading eyebrow="Wyniki" title="Liczby, nie obietnice" />
       <div className="mx-auto mt-12 max-w-5xl space-y-5">
         <CaseCard cs={first} featured />
-        {rest.length > 0 && (
+        {/* One extra study gets the full-width card too; a half-width card
+            next to an empty column looks unfinished. */}
+        {rest.length === 1 && <CaseCard cs={rest[0]} featured />}
+        {rest.length > 1 && (
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {rest.map((cs) => (
               <CaseCard key={cs.slug} cs={cs} />

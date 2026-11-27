@@ -222,6 +222,152 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "wypozyczalnia-aut-premium-los-angeles-google-meta-ads",
+    client: "Wypożyczalnia samochodów premium, Los Angeles (USA)",
+    channel: "Google Ads + Meta Ads",
+    period: "rok do roku",
+    title:
+      "Od przepalania budżetu do ponad 170 000 USD przychodu miesięcznie",
+    summary:
+      "Zamiast licytować się o klienta na lotnisku, przechwyciłem go w miastach, z których dopiero planuje podróż — i odciąłem ruch, który nie miał szans skonwertować.",
+    stats: [
+      { value: "170 tys.+ USD", label: "przychodu z Google Ads w rekordowym miesiącu" },
+      { value: "8,27", label: "ROAS Google Ads (wcześniej ok. 4,0)" },
+      { value: "+74%", label: "przychodu z Google Ads rok do roku" },
+      { value: "+89%", label: "rezerwacji z Meta Ads rok do roku" },
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Rynek wynajmu luksusowych samochodów w USA – a zwłaszcza w Los Angeles – to jedno z najbardziej konkurencyjnych środowisk reklamowych na świecie. Stawki za kliknięcie (CPC) potrafią przyprawić o zawrót głowy, a walka o klienta lądującego na lotnisku LAX przypomina cyfrową wojnę cenową. Jak w takich warunkach zwiększyłem miesięczny przychód z Google Ads o ponad 70% rok do roku, jednocześnie podwajając rentowność kampanii?",
+      },
+      {
+        type: "p",
+        text: "To case study mojego klienta – wypożyczalni samochodów premium z Los Angeles. Pokazuję w nim, jak dzięki bezwzględnej eliminacji „pustego ruchu” i precyzyjnemu geotargetowaniu poprawiłem jednocześnie skalę i rentowność działań reklamowych.",
+      },
+      {
+        type: "callout",
+        text: "Rekordowy miesiąc w Google Ads przyniósł ponad 170 000 USD przychodu przy ROAS 8,27.",
+      },
+
+      { type: "h2", text: "Kluczowe wyniki w liczbach" },
+      {
+        type: "list",
+        items: [
+          "Rekordowy miesiąc w Google Ads: ponad 170 tys. USD przychodu – o 74% więcej niż w tym samym miesiącu rok wcześniej.",
+          "Skok rentowności: ROAS Google Ads wzrósł z ok. 4,0 do 8,27.",
+          "Skalowanie Meta Ads: liczba rezerwacji wzrosła rok do roku o 89%.",
+          "Nowy sufit przychodowy w Meta: miesięczny przychód z kampanii na Facebooku i Instagramie wzrósł rok do roku o 90%.",
+        ],
+      },
+
+      { type: "h2", text: "Wyzwanie: wojna na lotnisku i „przepalane” dolary" },
+      {
+        type: "p",
+        text: "W branży wynajmu aut premium większość marek popełnia ten sam błąd: kieruje reklamy do osób, które już są w docelowym mieście albo szukają samochodu bezpośrednio na lotnisku. Efekt? Ogromna konkurencja, licytacja stawek i drastyczny spadek marży.",
+      },
+      {
+        type: "p",
+        text: "Podczas audytu konta znalazłem dodatkowo dwa poważne problemy strukturalne. Budżet uciekał na grupy odbiorców, które generowały wysoki koszt, ale nie finalizowały transakcji z powodu ograniczeń po stronie biznesu. Jednocześnie ogólne targetowanie na całe Stany Zjednoczone rozmywało potencjał reklamowy i utrudniało sensowną alokację budżetu.",
+      },
+      {
+        type: "p",
+        text: "Musiałem więc nie tylko zwiększyć skalę, ale przede wszystkim znaleźć miejsca, w których budżet był marnowany.",
+      },
+
+      { type: "h2", text: "Kluczowe filary wdrożonej strategii" },
+      { type: "h3", text: "Filar 1: Eliminacja „waste spend” – segment 18–24" },
+      {
+        type: "p",
+        text: "Audyt pokazał, że najmłodsza grupa wiekowa pochłaniała znaczną część budżetu przy fatalnym ROAS na poziomie 1,53.",
+      },
+      {
+        type: "p",
+        text: "Problem nie leżał wyłącznie w samej reklamie. Użytkownicy z tego segmentu często rezygnowali na stronie z powodu tzw. Underage Fee – dodatkowej opłaty ubezpieczeniowej dla kierowców poniżej 25. roku życia, standardowej w USA. W praktyce płaciłem więc za ruch, który strukturalnie miał ograniczoną możliwość konwersji.",
+      },
+      {
+        type: "p",
+        text: "Całkowicie odciąłem ten segment i przeniosłem budżet na najbardziej zyskowną grupę 25–44. Oczyściłem w ten sposób konto z dużej części pustego ruchu i podniosłem ogólny ROAS konta z 4,21 do szczytowego 8,27.",
+      },
+      { type: "h3", text: "Filar 2: Strategia „City-to-LA” – geotargetowanie" },
+      {
+        type: "p",
+        text: "Drugim kluczowym krokiem było odejście od ogólnego targetowania całych Stanów Zjednoczonych. Zamiast walczyć o klienta dopiero wtedy, gdy jest już w Los Angeles, skoncentrowałem budżety na tzw. wealth feeder markets – m.in. Nowym Jorku, Miami i Chicago. To miasta, z których zamożni klienci dopiero planują podróż do LA.",
+      },
+      {
+        type: "p",
+        text: "Celem było przechwycenie klienta przed podróżą i domknięcie rezerwacji, zanim wsiądzie do samolotu. Dzięki temu ominąłem najdroższą konkurencję bezpośrednio na lotnisku – zamiast walczyć o klienta w momencie, w którym walczą o niego wszyscy, pozyskiwałem go wcześniej, na etapie planowania podróży.",
+      },
+
+      { type: "h2", text: "Twarde dane z paneli Google Ads i Meta Ads" },
+      {
+        type: "p",
+        text: "Porównania rok do roku najlepiej pokazują efekt nowej alokacji budżetów.",
+      },
+      { type: "h3", text: "Google Ads – przychód wyższy o ponad 70% rok do roku" },
+      {
+        type: "p",
+        text: "Po odcięciu segmentu 18–24 i przejściu na strategię „City-to-LA” konto zanotowało najlepszy miesiąc w historii: przychód wzrósł o ponad 70%, a rentowność ponad dwukrotnie.",
+      },
+      {
+        type: "table",
+        head: ["Metryka", "Zmiana rok do roku (rekordowy miesiąc)"],
+        rows: [
+          ["Przychód z Google Ads", "+74%"],
+          ["Średni ROAS", "+107% (z ok. 4,0 do 8,27)"],
+        ],
+      },
+      { type: "h3", text: "Meta Ads – prawie dwa razy więcej rezerwacji rok do roku" },
+      {
+        type: "p",
+        text: "Social media przestały pełnić wyłącznie funkcję wizerunkową – zamieniłem je w twardy kanał sprzedażowy. Postawiłem na kreacje wideo pokazujące luksusowy „lifestyle z Los Angeles”, emitowane w zamożnych stanach, z których klienci przylatują do LA.",
+      },
+      {
+        type: "table",
+        head: ["Metryka", "Zmiana rok do roku (ten sam miesiąc)"],
+        rows: [
+          ["Liczba rezerwacji", "+89%"],
+          ["Miesięczny przychód z Meta Ads", "+90%"],
+        ],
+      },
+
+      { type: "h2", text: "Trzy lekcje z tego projektu" },
+      { type: "h3", text: "1. Optymalizacja zaczyna się od eliminacji" },
+      {
+        type: "p",
+        text: "W segmencie premium kluczowe jest bezwzględne odcinanie grup, które generują wysokie CPC, a jednocześnie mają operacyjne bariery zakupowe – takie jak Underage Fee. Odcięcie segmentu z ROAS 1,53 automatycznie podniosło ROAS całego konta i uwolniło budżet na ruch, który naprawdę konwertował.",
+      },
+      {
+        type: "p",
+        text: "Ten projekt po raz kolejny pokazał mi, że optymalizacja nie zawsze polega na dodawaniu kampanii, grup reklam czy odbiorców. Czasem największy wzrost daje usunięcie tego, co nie działa.",
+      },
+      { type: "h3", text: "2. Trzeba rozumieć rzeczywistą ścieżkę klienta" },
+      {
+        type: "p",
+        text: "W turystyce i wynajmie premium aukcji reklamowych nie trzeba wygrywać w miejscu docelowym. Przechwyciłem intencję zakupową w Nowym Jorku, Miami czy Chicago – jeszcze przed wylotem – i dotarłem do klienta na wcześniejszym etapie ścieżki, omijając najdroższą konkurencję w Kalifornii. Rekordowy miesiąc pokazał, że samo przesunięcie momentu dotarcia do klienta może mieć ogromny wpływ na wynik całego kanału.",
+      },
+      { type: "h3", text: "3. Skalowanie może iść w parze z rentownością" },
+      {
+        type: "p",
+        text: "Wzrost miesięcznego przychodu z Google Ads o ponad 70% rok do roku przy jednoczesnym wzroście ROAS z ok. 4,0 do 8,27 to najlepszy dowód, że skalowanie nie musi oznaczać przepalania większego budżetu. W markach premium kluczowe jest nie samo zwiększanie wydatków, ale ich lepsza alokacja i głębokie zrozumienie danych biznesowych klienta.",
+      },
+
+      { type: "h2", text: "Twój biznes premium utknął w miejscu?" },
+      {
+        type: "p",
+        text: "Przepalasz budżet na ruch, który daje kliknięcia, ale nie dowozi transakcji? Ścigasz się z konkurencją o najdroższe frazy, zamiast przechwytywać klienta wcześniej na jego ścieżce zakupowej?",
+      },
+      {
+        type: "p",
+        text: "W segmencie premium liczą się niuanse – od struktury kampanii, przez rentowność poszczególnych segmentów, po zrozumienie, kiedy i gdzie klient podejmuje decyzję zakupową.",
+      },
+      {
+        type: "callout",
+        text: "W tym projekcie nie potrzebowałem większego budżetu. Potrzebowałem lepiej zrozumieć, gdzie ten budżet powinien trafiać.",
+      },
+    ],
+  },
 ];
 
 export const getCaseStudy = (slug: string) =>
@@ -235,4 +381,4 @@ export const noBreakHyphens = (s: string) =>
   s
     .replace(/-/g, "‑")
     .replace(/(\d) (?=\d)/g, "$1 ")
-    .replace(/(\d) (?=PLN)/g, "$1 ");
+    .replace(/(\d) (?=PLN|USD)/g, "$1 ");
